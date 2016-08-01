@@ -1,4 +1,4 @@
-package com.imanoweb.calendarview;
+package com.imanoweb;
 
 import java.util.Date;
 

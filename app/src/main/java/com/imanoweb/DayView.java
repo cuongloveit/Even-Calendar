@@ -1,9 +1,8 @@
-package com.imanoweb.calendarview;
+package com.imanoweb;
 
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -40,6 +39,31 @@ public class DayView extends TextView {
         final SimpleDateFormat df = new SimpleDateFormat("d");
         int day = Integer.parseInt(df.format(date));
         setText(String.valueOf(day));
+
+
+    }
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        int height = MeasureSpec.getSize(heightMeasureSpec);
+        int widthDesc = MeasureSpec.getMode(widthMeasureSpec);
+        int heightDesc = MeasureSpec.getMode(heightMeasureSpec);
+        int size = 0;
+        if (widthDesc == MeasureSpec.UNSPECIFIED
+                && heightDesc == MeasureSpec.UNSPECIFIED) {
+           // size = getContext().getResources().getDimensionPixelSize(R.dimen.default_size); // Use your own default size, for example 125dp
+            size = 80;
+        } else if ((widthDesc == MeasureSpec.UNSPECIFIED || heightDesc == MeasureSpec.UNSPECIFIED)
+                && !(widthDesc == MeasureSpec.UNSPECIFIED && heightDesc == MeasureSpec.UNSPECIFIED)) {
+            //Only one of the dimensions has been specified so we choose the dimension that has a value (in the case of unspecified, the value assigned is 0)
+            size = width > height ? width : height;
+        } else {
+            //In all other cases both dimensions have been specified so we choose the smaller of the two
+            size = width > height ? height : width;
+        }
+        setMeasuredDimension(size, size);
     }
 
     public void decorate() {

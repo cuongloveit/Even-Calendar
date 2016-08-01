@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    android:clickable="true"
+    android:paddingBottom="@dimen/calendarTitlePaddingBottom"
+    android:paddingTop="@dimen/calendarTitlePaddingTop">
+
+
+    <TextView
+        android:id="@+id/tvPreviousMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:layout_centerVertical="true"
+        android:text="@string/may"
+        android:textColor="@color/blue_select"
+        android:paddingLeft="@dimen/padding"
+         />
+
+    <TextView
+        android:id="@+id/dateTitle"
+        style="@style/CalendarView.MonthTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="false"
+        android:layout_centerInParent="true"
+        android:tag="dateTitle"
+        android:textColor="@color/black"
+        android:text="MONTH 2014"
+        android:textAllCaps="true" />
+
+    <TextView
+        android:id="@+id/tvToday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="false"
+        android:layout_centerVertical="true"
+        android:paddingRight="@dimen/padding"
+        android:text="Today"
+        android:textColor="@color/blue_select"
+        />
+
+</RelativeLayout>
