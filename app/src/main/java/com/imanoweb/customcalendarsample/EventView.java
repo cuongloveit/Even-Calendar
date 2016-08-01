@@ -24,7 +24,7 @@ public class EventView extends LinearLayout {
     }
 
     private void init(){
-        inflate(getContext(),R.layout.layout_time_row,this);
+        inflate(getContext(),R.layout.layout_event,this);
 
     }
 }

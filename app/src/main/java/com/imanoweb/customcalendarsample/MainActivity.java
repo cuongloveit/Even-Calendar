@@ -17,17 +17,16 @@ package com.imanoweb.customcalendarsample;
  */
 
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-import com.imanoweb.calendarview.CalendarListener;
-import com.imanoweb.calendarview.CustomCalendarView;
-import com.imanoweb.calendarview.DayDecorator;
-import com.imanoweb.calendarview.DayView;
+import com.imanoweb.CalendarListener;
+import com.imanoweb.CustomCalendarView;
+import com.imanoweb.DayDecorator;
+import com.imanoweb.DayView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         calendarView.setFirstDayOfWeek(Calendar.MONDAY);
 
         //Show/hide overflow days of a month
-        calendarView.setShowOverflowDate(false);
+        calendarView.setShowOverflowDate(true);
 
         //call refreshCalendar to update calendar the view
         calendarView.refreshCalendar(currentCalendar);
@@ -89,6 +88,23 @@ public class MainActivity extends AppCompatActivity {
         decorators.add(new ColorDecorator());
         calendarView.setDecorators(decorators);
         calendarView.refreshCalendar(currentCalendar);*/
+        List<Calendar> dates = new ArrayList<>();
+        dates.add(initDate());
+        dates.add(initDate());
+        dates.add(initDate());
+        dates.add(initDate());
+        dates.add(initDate());
+        calendarView.markDays(dates,R.color.selected_color_text);
+    }
+
+    int i = 1;
+    private Calendar initDate() {
+        Calendar date = Calendar.getInstance();
+        Date time = date.getTime();
+        time.setDate(time.getDate()+i);
+        date.setTime(time);
+        i++;
+        return date;
     }
 
     private class ColorDecorator implements DayDecorator {

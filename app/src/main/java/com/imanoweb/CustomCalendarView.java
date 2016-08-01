@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.imanoweb.customcalendarsample.R;
+
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -77,27 +79,27 @@ public class CustomCalendarView extends LinearLayout {
     }
 
     private void getAttributes(AttributeSet attrs) {
-        final TypedArray typedArray = mContext.obtainStyledAttributes(attrs, com.imanoweb.calendarview.R.styleable.CustomCalendarView, 0, 0);
-        calendarBackgroundColor = typedArray.getColor(com.imanoweb.calendarview.R.styleable.CustomCalendarView_calendarBackgroundColor, getResources().getColor(com.imanoweb.calendarview.R.color.white));
-        calendarTitleBackgroundColor = typedArray.getColor(com.imanoweb.calendarview.R.styleable.CustomCalendarView_titleLayoutBackgroundColor, getResources().getColor(com.imanoweb.calendarview.R.color.white));
-        calendarTitleTextColor = typedArray.getColor(com.imanoweb.calendarview.R.styleable.CustomCalendarView_calendarTitleTextColor, getResources().getColor(com.imanoweb.calendarview.R.color.black));
-        weekLayoutBackgroundColor = typedArray.getColor(com.imanoweb.calendarview.R.styleable.CustomCalendarView_weekLayoutBackgroundColor, getResources().getColor(com.imanoweb.calendarview.R.color.white));
-        dayOfWeekTextColor = typedArray.getColor(com.imanoweb.calendarview.R.styleable.CustomCalendarView_dayOfWeekTextColor, getResources().getColor(com.imanoweb.calendarview.R.color.black));
-        dayOfMonthTextColor = typedArray.getColor(com.imanoweb.calendarview.R.styleable.CustomCalendarView_dayOfMonthTextColor, getResources().getColor(com.imanoweb.calendarview.R.color.black));
-        disabledDayBackgroundColor = typedArray.getColor(com.imanoweb.calendarview.R.styleable.CustomCalendarView_disabledDayBackgroundColor, getResources().getColor(com.imanoweb.calendarview.R.color.day_disabled_background_color));
-        disabledDayTextColor = typedArray.getColor(com.imanoweb.calendarview.R.styleable.CustomCalendarView_disabledDayTextColor, getResources().getColor(com.imanoweb.calendarview.R.color.day_disabled_text_color));
+        final TypedArray typedArray = mContext.obtainStyledAttributes(attrs, R.styleable.CustomCalendarView, 0, 0);
+        calendarBackgroundColor = typedArray.getColor(R.styleable.CustomCalendarView_calendarBackgroundColor, getResources().getColor(R.color.white));
+        calendarTitleBackgroundColor = typedArray.getColor(R.styleable.CustomCalendarView_titleLayoutBackgroundColor, getResources().getColor(R.color.white));
+        calendarTitleTextColor = typedArray.getColor(R.styleable.CustomCalendarView_calendarTitleTextColor, getResources().getColor(R.color.black));
+        weekLayoutBackgroundColor = typedArray.getColor(R.styleable.CustomCalendarView_weekLayoutBackgroundColor, getResources().getColor(R.color.white));
+        dayOfWeekTextColor = typedArray.getColor(R.styleable.CustomCalendarView_dayOfWeekTextColor, getResources().getColor(R.color.black));
+        dayOfMonthTextColor = typedArray.getColor(R.styleable.CustomCalendarView_dayOfMonthTextColor, getResources().getColor(R.color.black));
+        disabledDayBackgroundColor = typedArray.getColor(R.styleable.CustomCalendarView_disabledDayBackgroundColor, getResources().getColor(R.color.day_disabled_background_color));
+        disabledDayTextColor = typedArray.getColor(R.styleable.CustomCalendarView_disabledDayTextColor, getResources().getColor(R.color.day_disabled_text_color));
         //selectedDayBackground = typedArray.getDrawable(R.styleable.CustomCalendarView_selectedDayBackgroundColor, getResources().getDrawable(R.drawable.bg_select_day_view));
-        selectedDayTextColor = typedArray.getColor(com.imanoweb.calendarview.R.styleable.CustomCalendarView_selectedDayTextColor, getResources().getColor(com.imanoweb.calendarview.R.color.selected_color_text));
-        currentDayOfMonth = typedArray.getColor(com.imanoweb.calendarview.R.styleable.CustomCalendarView_currentDayOfMonthColor, getResources().getColor(com.imanoweb.calendarview.R.color.current_day_of_month));
+        selectedDayTextColor = typedArray.getColor(R.styleable.CustomCalendarView_selectedDayTextColor, getResources().getColor(R.color.selected_color_text));
+        currentDayOfMonth = typedArray.getColor(R.styleable.CustomCalendarView_currentDayOfMonthColor, getResources().getColor(R.color.current_day_of_month));
 
         typedArray.recycle();
     }
 
     private void initializeCalendar() {
         final LayoutInflater inflate = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflate.inflate(com.imanoweb.calendarview.R.layout.custom_calendar_layout, this, true);
-        previousMonthButton = (TextView) view.findViewById(com.imanoweb.calendarview.R.id.tvPreviousMonth);
-        nextMonthButton = (TextView) view.findViewById(com.imanoweb.calendarview.R.id.tvToday);
+        view = inflate.inflate(R.layout.custom_calendar_layout, this, true);
+        previousMonthButton = (TextView) view.findViewById(R.id.tvPreviousMonth);
+        nextMonthButton = (TextView) view.findViewById(R.id.tvToday);
 
         previousMonthButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -140,13 +142,13 @@ public class CustomCalendarView extends LinearLayout {
      * Display calendar title with next previous month button
      */
     private void initializeTitleLayout() {
-        View titleLayout = view.findViewById(com.imanoweb.calendarview.R.id.titleLayout);
+        View titleLayout = view.findViewById(R.id.titleLayout);
         titleLayout.setBackgroundColor(calendarTitleBackgroundColor);
 
         String dateText = new DateFormatSymbols(locale).getShortMonths()[currentCalendar.get(Calendar.MONTH)].toString();
         dateText = dateText.substring(0, 1).toUpperCase() + dateText.subSequence(1, dateText.length());
 
-        TextView dateTitle = (TextView) view.findViewById(com.imanoweb.calendarview.R.id.dateTitle);
+        TextView dateTitle = (TextView) view.findViewById(R.id.dateTitle);
         dateTitle.setTextColor(calendarTitleTextColor);
         dateTitle.setText(dateText + " " + currentCalendar.get(Calendar.YEAR));
         dateTitle.setTextColor(calendarTitleTextColor);
@@ -165,7 +167,7 @@ public class CustomCalendarView extends LinearLayout {
         String dayOfTheWeekString;
 
         //Setting background color white
-        View titleLayout = view.findViewById(com.imanoweb.calendarview.R.id.weekLayout);
+        View titleLayout = view.findViewById(R.id.weekLayout);
         titleLayout.setBackgroundColor(weekLayoutBackgroundColor);
 
         final String[] weekDaysArray = new DateFormatSymbols(locale).getShortWeekdays();
@@ -377,7 +379,7 @@ public class CustomCalendarView extends LinearLayout {
     public void markDayAsCurrentDay(Calendar calendar) {
         if (calendar != null && isToday(calendar)) {
             DayView dayOfMonth = getDayOfMonthText(calendar);
-            dayOfMonth.setBackgroundResource(com.imanoweb.calendarview.R.drawable.bg_current_day_view);
+            dayOfMonth.setBackgroundResource(R.drawable.bg_current_day_view);
             dayOfMonth.setTextColor(currentDayOfMonth);
         }
     }
@@ -404,7 +406,7 @@ public class CustomCalendarView extends LinearLayout {
 
     public DayView markDay(Calendar date){
         DayView view = getDayOfMonthText(date);
-        view.setBackgroundResource(com.imanoweb.calendarview.R.drawable.bg_select_day_view);
+        view.setBackgroundResource(R.drawable.bg_select_day_view);
         view.setTextColor(selectedDayTextColor);
         return view;
     }

@@ -62,16 +62,16 @@ libraryDependencies += "com.github.npanigrahy" % "Custom-Calendar-View" % "v1.0"
 The GitHub project source includes a sample application, that is used for demonstrating the various features currently supported by this library. Once the library is added to your project, you can include the CustomCalendarView into your activity/fragment layout using the following code snippets.
 
 ```xml
-<com.imanoweb.calendarview.CustomCalendarView
+<com.imanoweb.CustomCalendarView
 	android:id="@+id/calendar_view"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:background="#ffffff">
-</com.imanoweb.calendarview.CustomCalendarView>
+</com.imanoweb.CustomCalendarView>
 ```
 The above code snippet will show the simple Calendar View with default design. Now, you can use the following attributes, to customize the appearance of calendar.
 ```xml
-<com.imanoweb.calendarview.CustomCalendarView
+<com.imanoweb.CustomCalendarView
         android:id="@+id/calendar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,7 +86,7 @@ The above code snippet will show the simple Calendar View with default design. N
         app:selectedDayBackgroundColor="@color/blue"
         app:titleLayoutBackgroundColor="@color/white"
         app:weekLayoutBackgroundColor="@color/white">
-</com.imanoweb.calendarview.CustomCalendarView>
+</com.imanoweb.CustomCalendarView>
 ```
 Let us now, initialize the calendar view to control the various other appearance and behavior of calendar using the following methods.
 ```java
